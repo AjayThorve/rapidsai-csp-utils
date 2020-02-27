@@ -93,8 +93,7 @@ if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
         conda install -y --prefix /usr/local \
                 -c rapidsai-nightly/label/xgboost -c rapidsai-nightly -c nvidia -c conda-forge \
                 python=3.6 cudatoolkit=10.0 \
-                cudf=$RAPIDS_VERSION cuml cugraph gcsfs pynvml cuspatial xgboost\
-                dask-cudf
+                cudf=$RAPIDS_VERSION cuxfilter==$RAPIDS_VERSION
     else #Stable packages requiring PyArrow 0.15
         echo "Installing RAPIDS $RAPIDS_VERSION packages from the stable release channel"
         echo "Please standby, this will take a few minutes..."
@@ -102,8 +101,7 @@ if [ ! -f Miniconda3-4.5.4-Linux-x86_64.sh ]; then
         conda install -y --prefix /usr/local \
             -c rapidsai/label/xgboost -c rapidsai -c nvidia -c conda-forge \
             python=3.6 cudatoolkit=10.0 \
-            cudf=$RAPIDS_VERSION cuml cugraph cuspatial gcsfs pynvml xgboost\
-            dask-cudf
+            cudf=$RAPIDS_VERSION cuxfilter==$RAPIDS_VERSION
     fi
       
     echo "Copying shared object files to /usr/lib"
